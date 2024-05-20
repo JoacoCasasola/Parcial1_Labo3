@@ -23,7 +23,6 @@ async function loadItems() {
 
     objeto.forEach(obj => {
         const model = new Planeta(
-            obj.id,  // Agregar ID si no existe
             obj.nombre,
             obj.tamaño,
             obj.masa,
@@ -82,11 +81,30 @@ function escucharFormulario() {
 
         var fechaActual = new Date();
 
-        let anillos = form.querySelector('input[name="anillos"]:checked');
-        let vida = form.querySelector('input[name="vida"]:checked');
+        let anillos = form.querySelector("#anillos");
+        let vida = form.querySelector("#vida");
 
-        let valanillos = anillos ? (anillos.value === "si" ? "SI" : "NO") : "NO";
-        let valvida = vida ? (vida.value === "si" ? "SI" : "NO") : "NO";
+        let valanillos = form.querySelector("#anillos").value;
+        let valvida = form.querySelector("#vida").value;
+
+        if (anillos.type === "radio" && vida.type === "radio"){
+            valvida = vida.checked;
+            valanillos = anillos.checked;
+
+            if(valvida == true){
+                valvida = "SI";
+            }
+            else{
+                valvida = "NO";
+            }
+
+            if(valanillos == true){
+                valanillos = "SI";
+            }
+            else{
+                valanillos = "NO";
+            }
+        } 
 
         const model = new Planeta(
             fechaActual.getTime(),

@@ -359,7 +359,7 @@ input[type="file"]{
 .container-table{
     border: solid 1px var(--color2);
     color: rgb(37, 45, 37);
-    background: rgb(182, 209, 182);
+    background: rgb(206, 209, 182);
     font-size: 20px;
     text-align: center;
 }
@@ -378,7 +378,7 @@ th{
 
 td{
     padding: 15px;
-    border-bottom: solid 1px green;
+    border-bottom: solid 1px rgb(126, 128, 0);
 }
 
 td a{
@@ -386,11 +386,11 @@ td a{
 }
 
 tbody tr:nth-of-type(odd){
-    background: rgb(152, 187, 149);
+    background: rgb(185, 187, 149);
 }
 
 tbody tr:hover {
-    background: rgb(171, 237, 171);
+    background: rgb(235, 237, 171);
 }
 
 
