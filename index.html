@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./assets/logo.svg" type="image/png">
+    <script type="module" src="./js/script.js"></script>
+    <script src="./js/scroll-header.js"></script>
+    <title>Planetas</title>
+</head>
+<body>
+    <header>
+        <div class="barra">
+            <a href=""><img src="" alt=""></a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Anuncios</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="banner">
+        <h1>Administrador de planetas</h1>
+    </section>
+    <section class="form">
+        <div class="form-box">
+            <form action="" method="post" id="form-item">
+                <h2>Registro</h2>
+            
+                <div class="input-box">
+                    <input type="text" required name="nombre" id="txtnombre">
+                    <label for="txtnombre">Nombre</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required name="tamaño" id="txttamaño">
+                    <label for="txttamaño">Tamaño</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required name="masa" id="txtmasa">
+                    <label for="txtmasa">Masa</label>
+                </div>
+                <div class="tipo" id="tipo">
+                    <label for="tipo-planet">Nacionalidad:</label>
+                    <select name="tipo-planet" id="tipo-planet">
+                        <option value="tipo-rocoso">Rocoso</option>
+                        <option value="tipo-gaseoso">Gaseoso</option>
+                        <option value="tipo-helado">Helado</option>
+                        <option value="tipo-enano">Enano</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <input type="text" required name="alSol" id="txtdisSol">
+                    <label for="alSol">Distancia al Sol</label>
+                </div>
+                <div class="check-presenta">
+                    <fieldset>
+                        <legend>
+                            <label for="txtpresenta">Presenta</label>
+                        </legend>
+                        <div class="presenta">   
+                            <label for="anillos">Anillos</label>
+                            <input type="radio" name="presenta" id="anillos">
+                            <label for="vida">Vida</label>
+                            <input type="radio" name="presenta" id="vida">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="input-text">
+                    <label for="">Composicion atmosferica:</label>
+                    <textarea name="texto" placeholder="Ingrese composicion..." id="composicion"></textarea>
+                </div>
+                
+                <button class="btn-send" aria-required="true" type="submit">Guardar</button>
+            </form>
+        </div>
+    </section>
+    <div class="container-btn-delete-all">
+        <button type="button" id="btn-delete-all" class="btn">Borrar Todo</button>
+    </div>
+    <section class="tabla">
+        <div class="container-table">
+            <table id="table" class="table-items">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tamaño</th>
+                        <th>Masa</th>
+                        <th>Tipo</th>
+                        <th>Dist.al Sol</th>
+                        <th>Anillos</th>
+                        <th>Vida</th>
+                        <th>Composicion</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody class="tbodyx"></tbody>
+            </table>
+        </div>
+    </section>
+    <div id="spinner" class="spinner">
+        <img src="./assets/logo.svg" alt="Spinner" class="spinner-img">
+    </div>
+    <footer>
+        <div class="barra">
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Anuncios</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p>Casasola Joaquin <date>2024 </date>&copy;</p>
+    </footer>
+</body>
+</html>

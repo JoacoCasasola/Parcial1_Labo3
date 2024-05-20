@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+:root{
+    --color1: rgb(3, 25, 40);
+    --color2: rgb(188, 170, 50);
+}
+
+
+body {
+    background: var(--color1);
+    color: var(--color2);
+}
+
+
+/*HEADER*/
+
+header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background: transparent;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 13vh;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.barra {
+    padding-top: 10px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 13vh;
+}
+
+.barra img {
+    margin-left: 20px;
+    width: 300px;
+}
+
+nav .menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+nav .menu li a {
+    position: relative;
+    color: var(--color2);
+    text-decoration: none;
+    margin-right: 50px;
+    font-size: 25px;
+    transition: .4s;
+}
+
+nav .menu li a:hover {
+    filter: drop-shadow(7px 10px 6px var(--color2));
+}
+
+nav .menu li:active{
+    transform: scale(0.9);
+}
+
+header.transicion {
+    background: rgba(0, 45, 88, 0.933)
+}
+
+
+/*BANNER*/
+.banner {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+}
+
+.banner h1 {
+    color: rgb(255, 196, 0);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    padding: 65vh 0px 120px 60px;
+    max-width: 890px;
+    font-size: 80px;
+    filter: drop-shadow(8px 8px 7px rgb(26, 26, 26));
+    z-index: -1;
+}
+
+
+
+/*FORMULARIO*/
+
+.form-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 580px;
+    background: transparent;
+    backdrop-filter: blur(6px);
+    border-radius: 13px;
+    margin: 40px;
+}
+
+h2{
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--color2);
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    margin: 30px 0;
+    width: 300px;
+    border-bottom: 1.5px solid var(--color2);
+}
+
+.input-box label {
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: var(--color2);
+    font-size: 1rem;
+    transition: 0.4s;
+}
+
+input:focus ~ label, input:valid ~ label{
+top: -5px;
+}
+
+.input-box input{
+    outline: none;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+    color: var(--color2);
+}
+
+.tipo select {
+    border-color: var(--color2);
+    appearance: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    margin-left: 1rem;
+    background-color: var(--color2);
+    text-align: center;
+    color: var(--color1);
+}
+
+.tipo select option {
+    background-color: var(--color2);
+}
+
+
+
+.check-presenta {
+    color: var(--color2);
+    margin-bottom: 20px;
+}
+
+.check-presenta fieldset{
+    padding: 10px;
+    border: 1px solid var(--color2);
+    border-radius: 9px;
+}
+
+.check-presenta fieldset legend{
+    background: var(--color2);
+    color: var(--color1);
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.check-presenta .presenta{
+    margin: 5px;
+}
+
+.check-presenta .presenta label{
+    margin-left: 40px;
+}
+
+.check-presenta .presenta input{
+    margin-left: 2px;
+}
+
+.input-text{
+    width: 280px;
+    padding: 15px 10px 20px;
+}
+
+.input-text label{
+    color: var(--color2);
+}
+
+.input-text textarea{
+    background: transparent;
+    max-width: 280px;
+    min-width: 280px;
+    min-height: 90px;
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border-color: var(--color2);
+    outline: none;
+    font-size: 15px;
+    color: var(--color2);
+}
+
+.input-text textarea::placeholder{
+    color: var(--color2);
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.input-file {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-file label{
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--color2);
+    background: var(--blue1);
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 11px;
+    border-radius: 5px;
+    border: 1px solid var(--color2);
+    cursor: pointer;
+}
+
+.input-file label:active{
+    transform: scale(0.9);
+}
+
+.btn-send{
+    margin-top: 1.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--color1);
+    background: var(--color2);
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid var(--color2);
+    transition: .4s;
+}
+
+.btn-send:hover{
+    color: var(--color2);
+    background: transparent;
+}
+
+.btn-send:active{
+    background: rgb(111, 188, 111);
+}
+
+
+
+
+
+
+/*BTN ELIMINAR*/
+
+.container-btn-delete-all {
+    display: flex;
+    justify-content: center;
+}
+
+.container-btn-delete-all .btn {
+    cursor: pointer;
+    max-width: 7rem;
+    background-color: brown;
+    color: var(--color1);
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: .4s;
+    margin-top: 200px;
+}
+
+.container-btn-delete-all .btn:hover {
+    background-color: var(--color1);
+    color: brown;
+    border:1px solid brown;
+    text-decoration: underline;
+}
+
+.container-btn-delete-all .btn:active {
+    background-color: rgb(255, 1, 1);
+    filter: drop-shadow(0 0 16px rgba(255, 0, 0, 0.636));
+    color: var(--color1);
+}
+
+
+
+
+/*TABLA*/
+
+.tabla{
+    margin-bottom: 100px;
+    margin-top: 10px;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box{
+    margin: 0 auto;
+}
+
+.btn-eliminar {
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+    padding: 5px 10px;
+    transition: .4s;
+}
+
+.btn-eliminar:hover{
+    background-color: white;
+    color: brown;
+}
+
+.btn-eliminar:active{
+    background-color: rgb(225, 108, 108);
+}
+
+.container-table{
+    border: solid 1px var(--color2);
+    color: rgb(37, 45, 37);
+    background: rgb(182, 209, 182);
+    font-size: 20px;
+    text-align: center;
+}
+
+thead{
+    background: var(--color2);
+    color: var(--color1);
+}
+
+th{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+td{
+    padding: 15px;
+    border-bottom: solid 1px green;
+}
+
+td a{
+    color: rgb(181, 0, 0);
+}
+
+tbody tr:nth-of-type(odd){
+    background: rgb(152, 187, 149);
+}
+
+tbody tr:hover {
+    background: rgb(171, 237, 171);
+}
+
+
+
+
+
+/*SPINER*/
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(3, 25, 40, 0.663);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 9999;
+}
+
+.spinner-img {
+    width: 300px;
+    height: 300px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/*FOOT*/
+
+footer{
+    background: var(--color2);
+    text-align: center;
+}
+
+footer .barra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .barra .menu a{
+    color: var(--color1);
+    font-size: 20px;
+}
+
+footer .barra .menu a:hover{
+    text-decoration: underline;
+}
+
+footer p{
+    color: var(--color1);
+    padding: 10px;
+}
