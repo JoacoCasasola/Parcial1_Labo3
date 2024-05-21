@@ -456,3 +456,81 @@ footer p{
     color: var(--color1);
     padding: 10px;
 }
+
+
+
+
+
+/*RESPONSIVE*/
+
+@media (max-width: 1200px){
+    body{
+        min-width: 1100px;
+    }
+
+    .banner, footer{
+        min-width: 1100px;
+    }
+}
+
+
+@media (max-width: 900px){
+    body{
+        min-width: 800px;
+    }
+    .banner, footer{
+        min-width: 800px;
+    }
+}
+
+
+@media (max-width: 700px){
+    body{
+        min-width: 700px;
+    }
+
+    .banner, footer{
+        min-width: 840px;
+    }
+}
+
+
+
+@media (max-width: 600px){
+
+    body{
+        min-width: 500px;
+    }
+
+    .banner, footer{
+        min-width: 540px;
+    }
+
+    td,th{
+        padding: 3px;
+        border-bottom: none;
+    }
+
+    .container-table{
+        width: 350px;
+        font-size: 14px;
+        border: none;
+        background: transparent;
+    }
+
+    .table-items{
+        width: 100%;
+    }
+    
+    .table-items tr{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid var(--color2);
+        margin-bottom: 20px;
+    }
+
+    .table-items thead{
+        display: none;
+    }
+
+}
