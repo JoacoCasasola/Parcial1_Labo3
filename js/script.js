@@ -167,3 +167,10 @@ function escuchandoBtnDeleteAll() {
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const yearElement = document.getElementById('year');
+
+    const year = new Date().getFullYear();
+    yearElement.textContent = year;
+});
