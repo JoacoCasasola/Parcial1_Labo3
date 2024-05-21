@@ -68,7 +68,6 @@ function rellenarTabla() {
             } else {
                 nuevaCelda.textContent = item[celda] !== "" ? item[celda] : " - ";
             }
-
             nuevaFila.appendChild(nuevaCelda);
         });
         tbody.appendChild(nuevaFila);

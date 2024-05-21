@@ -282,7 +282,7 @@ input[type="file"]{
 }
 
 .btn-send:active{
-    background: rgb(111, 188, 111);
+    background: var(--color2);
 }
 
 
@@ -304,7 +304,6 @@ input[type="file"]{
     color: var(--color1);
     font-weight: 600;
     padding: 10px 15px;
-    transition: .4s;
     margin-top: 200px;
 }
 
@@ -342,18 +341,19 @@ input[type="file"]{
 .btn-eliminar {
     cursor: pointer;
     background-color: brown;
-    color: white;
+    color: var(--color1);
     padding: 5px 10px;
-    transition: .4s;
 }
 
 .btn-eliminar:hover{
-    background-color: white;
+    background-color: transparent;
     color: brown;
 }
 
 .btn-eliminar:active{
-    background-color: rgb(225, 108, 108);
+    background-color: rgb(255, 1, 1);
+    filter: drop-shadow(0 0 16px rgba(255, 0, 0, 0.636));
+    color: var(--color1);
 }
 
 .container-table{
