@@ -1,4 +1,4 @@
-import { Planeta } from "./PlanetaBase.js";
+import { Planeta } from "./Planeta.js";
 import { leer, escribir, limpiar, jsonToObject, objectToJson } from "./local-storage.js";
 import { mostrarSpinner, ocultarSpinner } from "./spinner.js";
 
@@ -17,24 +17,26 @@ function onInit() {
 async function loadItems() {
     mostrarSpinner();
     let cadena = await leer(KEY_STORAGE);
-    ocultarSpinner();
 
     const objeto = jsonToObject(cadena) || []; 
 
     objeto.forEach(obj => {
         const model = new Planeta(
+            obj.id,
             obj.nombre,
             obj.tamaño,
             obj.masa,
             obj.tipo,
-            obj.distSol,
+            obj.distAlSol,
             obj.anillos,
             obj.vida,
             obj.composicion
         );
         items.push(model);
     });
+
     rellenarTabla();
+    ocultarSpinner();
 }
 
 function rellenarTabla() {
@@ -47,7 +49,7 @@ function rellenarTabla() {
         "tamaño",
         "masa",
         "tipo",
-        "distSol",
+        "distAlSol",
         "anillos",
         "vida",
         "composicion",
@@ -65,6 +67,13 @@ function rellenarTabla() {
                 botonEliminar.classList.add("btn-eliminar");
                 botonEliminar.addEventListener("click", () => eliminarItem(item.id));
                 nuevaCelda.appendChild(botonEliminar);
+
+                let botonModificar = document.createElement("button");
+                botonModificar.textContent = "Modificar";
+                botonModificar.classList.add("btn-modificar");
+                botonModificar.href = "#form-item";
+                botonModificar.addEventListener("click", () => ModificarItem(item.id));
+                nuevaCelda.appendChild(botonModificar);
             } else {
                 nuevaCelda.textContent = item[celda] !== "" ? item[celda] : " - ";
             }
@@ -75,57 +84,45 @@ function rellenarTabla() {
 }
 
 function escucharFormulario() {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        var fechaActual = new Date();
-
-        let anillos = form.querySelector("#anillos");
-        let vida = form.querySelector("#vida");
-
-        let valanillos = form.querySelector("#anillos").value;
-        let valvida = form.querySelector("#vida").value;
-
-        if (anillos.type === "radio" && vida.type === "radio"){
-            valvida = vida.checked;
-            valanillos = anillos.checked;
-
-            if(valvida == true){
-                valvida = "SI";
-            }
-            else{
-                valvida = "NO";
-            }
-
-            if(valanillos == true){
-                valanillos = "SI";
-            }
-            else{
-                valanillos = "NO";
-            }
-        } 
+        const editarId = form.querySelector("#editarId").value;
+        const anillos = form.querySelector("#anillos").checked ? "SI" : "NO";
+        const vida = form.querySelector("#vida").checked ? "SI" : "NO";
 
         const model = new Planeta(
-            fechaActual.getTime(),
+            editarId ? parseInt(editarId) : new Date().getTime(),
             form.querySelector("#txtnombre").value,
             form.querySelector("#txttamaño").value,
             form.querySelector("#txtmasa").value,
             form.querySelector("#tipo-planet").value,
             form.querySelector("#txtdisSol").value,
-            valanillos,
-            valvida,
+            anillos,
+            vida,
             form.querySelector("#composicion").value
         );
 
         const resp = model.verify();
 
         if (resp.success) {
-            items.push(model);
+            mostrarSpinner();
+            
+            if (editarId) {
+                const index = items.findIndex(item => item.id === parseInt(editarId));
+                if (index !== -1) {
+                    items[index] = model;
+                }
+            } else {
+                items.push(model);
+            }
+
             const str = objectToJson(items);
-            escribir(KEY_STORAGE, str);
+            await escribir(KEY_STORAGE, str);
 
             actualizarFormulario();
             rellenarTabla();
+            ocultarSpinner();
         } else {
             alert(resp.rta);
         }
@@ -134,15 +131,42 @@ function escucharFormulario() {
 
 function actualizarFormulario() {
     form.reset();
+    form.querySelector("#editarId").value = "";
+    form.querySelector(".btn-send").textContent = "Guardar";
 }
 
-function eliminarItem(id) {
+async function eliminarItem(id) {
+    mostrarSpinner();
     const index = items.findIndex(item => item.id === id);
     if (index !== -1) {
         items.splice(index, 1);
         const str = objectToJson(items);
-        escribir(KEY_STORAGE, str);
+        await escribir(KEY_STORAGE, str);
         rellenarTabla();
+    }
+    ocultarSpinner();
+}
+
+function ModificarItem(id) {
+    const index = items.findIndex(item => item.id === id);
+    if (index !== -1) {
+        const item = items[index];
+        
+        form.querySelector("#editarId").value = item.id;
+        form.querySelector("#txtnombre").value = item.nombre;
+        form.querySelector("#txttamaño").value = item.tamaño;
+        form.querySelector("#txtmasa").value = item.masa;
+        form.querySelector("#tipo-planet").value = item.tipo;
+        form.querySelector("#txtdisSol").value = item.distAlSol;
+        
+        form.querySelector("#anillos").checked = item.anillos === "SI";
+        form.querySelector("#vida").checked = item.vida === "SI";
+
+        form.querySelector("#composicion").value = item.composicion;
+
+        form.querySelector(".btn-send").textContent = "Modificar";
+
+        form.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -150,7 +174,7 @@ function escuchandoBtnDeleteAll() {
     const btn = document.getElementById("btn-delete-all");
 
     btn.addEventListener("click", async (e) => {
-        const rta = confirm('Desea eliminar todos los Items?');
+        const rta = confirm('Deseas eliminar todos los Items?');
 
         if (rta) {
             mostrarSpinner();
@@ -168,9 +192,7 @@ function escuchandoBtnDeleteAll() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const yearElement = document.getElementById('year');
+const yearElement = document.getElementById('year');
 
-    const year = new Date().getFullYear();
-    yearElement.textContent = year;
-});
+const year = new Date().getFullYear();
+yearElement.textContent = year;

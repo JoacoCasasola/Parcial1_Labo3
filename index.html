@@ -7,6 +7,7 @@
     <link rel="icon" href="./assets/logo.svg" type="image/png">
     <script type="module" src="./js/script.js"></script>
     <script src="./js/scroll-header.js"></script>
+    
     <title>Planetas</title>
 </head>
 <body>
@@ -29,6 +30,8 @@
         <div class="form-box">
             <form action="" method="post" id="form-item">
                 <h2>Registro</h2>
+
+                <input type="hidden" id="editarId" name="editarId" value="">
             
                 <div class="input-box">
                     <input type="text" required name="nombre" id="txtnombre">
@@ -62,9 +65,9 @@
                         </legend>
                         <div class="presenta">   
                             <label for="anillos">Anillos</label>
-                            <input type="radio" name="presenta" id="anillos">
+                            <input type="checkbox" name="presenta" id="anillos">
                             <label for="vida">Vida</label>
-                            <input type="radio" name="presenta" id="vida">
+                            <input type="checkbox" name="presenta" id="vida">
                         </div>
                     </fieldset>
                 </div>
@@ -114,7 +117,7 @@
                 </ul>
             </nav>
         </div>
-        <p>Casasola Joaquin <date id="year"></date>&copy;</p>
+        <p>CasasolaJoaquin<date id="year"></date>&copy;</p>
     </footer>
 </body>
 </html>

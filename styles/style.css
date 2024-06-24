@@ -6,7 +6,7 @@
 }
 
 :root{
-    --color1: rgb(3, 25, 40);
+    --color1: rgb(2, 18, 29);
     --color2: rgb(188, 170, 50);
 }
 
@@ -74,7 +74,7 @@ nav .menu li:active{
 }
 
 header.transicion {
-    background: rgba(0, 45, 88, 0.933)
+    background: rgba(4, 36, 67, 0.933)
 }
 
 
@@ -82,7 +82,7 @@ header.transicion {
 .banner {
     height: 100vh;
     width: 100%;
-    background-image: url(../assets/background.jpg);
+    background-image: url(/assets/background.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -187,10 +187,9 @@ top: -5px;
 }
 
 .check-presenta fieldset legend{
-    background: var(--color2);
-    color: var(--color1);
+    color: var(--color2);
     border-radius: 20px;
-    padding: 7px;
+    padding: 5px;
 }
 
 .check-presenta .presenta{
@@ -351,6 +350,29 @@ input[type="file"]{
     color: var(--color1);
 }
 
+
+
+.btn-modificar {
+    cursor: pointer;
+    background-color: rgb(42, 165, 93);
+    color: var(--color1);
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+.btn-modificar:hover{
+    background-color: transparent;
+    color: rgb(42, 165, 93);
+}
+
+.btn-modificar:active{
+    background-color: rgb(4, 255, 109);
+    filter: drop-shadow(0 0 16px rgba(0, 255, 128, 0.636));
+    color: var(--color1);
+}
+
+
+
 .container-table{
     border: solid 1px var(--color2);
     color: rgb(37, 45, 37);
@@ -446,8 +468,6 @@ footer p{
     color: var(--color1);
     padding: 10px;
 }
-
-
 
 
 
