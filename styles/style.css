@@ -8,6 +8,7 @@
 :root{
     --color1: rgb(2, 18, 29);
     --color2: rgb(188, 170, 50);
+    --color3: rgb(121, 110, 40);
 }
 
 
@@ -44,7 +45,7 @@ header {
 .barra img {
     margin-left: 20px;
     margin-bottom: 5px;
-    width: 90px;
+    width: 70px;
 }
 
 nav .menu {
@@ -66,7 +67,7 @@ nav .menu li a {
 }
 
 nav .menu li a:hover {
-    filter: drop-shadow(7px 10px 6px var(--color2));
+    filter: drop-shadow(7px 10px 6px var(--color3));
 }
 
 nav .menu li:active{
@@ -74,7 +75,7 @@ nav .menu li:active{
 }
 
 header.transicion {
-    background: rgba(4, 36, 67, 0.933)
+    background: rgb(4, 36, 67)
 }
 
 
