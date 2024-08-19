@@ -2,7 +2,7 @@
 
 This project is an interactive web application to manage a catalog of planets. Developed as part of the Laboratory 3 subject of the ***Programming Technology*** degree at ***UTN-FRA***, the planet manager allows users to register, modify, and delete planets (***CRUD***), as well as viewing its detailed information in a dynamic table.
 
-## ✨Features
+## ✨ Features
 - ***Dynamic Form***: Allows you to add new planets or edit existing ones, with fields for name, size, mass, type, distance from the Sun, presence of rings and life, and atmospheric composition.
 - ***Local Storage***: Use Local Storage to persist planet information.
 - ***Interactive Table***: Presents the data of the planets in a table that is updated in real time.
@@ -19,4 +19,4 @@ Records Management: Ability to delete individual planets or all at once.
 
 ## ✍️ Authors 
 
-- ***[Joaquín Casasola](https://github.com/tu-usuario)*** - FullStack / Frontend Developer
+- ***[Joaquín Casasola](https://github.com/JoacoCasasola)*** - FullStack / Frontend Developer
